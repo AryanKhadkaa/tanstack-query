@@ -1,0 +1,4 @@
+TanStack Query (fka React Query), is a powerful data-fetching and state management library for React.
+It basically simplifies and betters the whole querying process.
+
+Its desgined to simplify working with server-state by providing tools to manage fetching, caching(automated), synchonization, and background updates.
