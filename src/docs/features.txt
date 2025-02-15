@@ -1,0 +1,45 @@
+1. Data Fetching: Simplifies data fetching logic, especially for asynchronous operations like HTTP requests or GraphQL queries.
+
+2. Caching: Automatically caches fetched data to improve performance and prevent unnecessary network requests.
+
+3. Background Fetching & Updates: Automatically refetches data in the background to keep it up to date, even when the user isn't actively 
+   interacting with the data.
+
+4. Background Fetching & Updates: Automatically refetches data in the background to keep it up to date, even when the user isn't actively 
+   interacting with the data.
+
+   What is pagination?
+   -> Pagination is a technique to split large amounts of data into smaller chunks (pages) instead of fetching everything at once.
+   -> It improves performance, reduces load time, and enhances user experience by loading only the necessary data.
+
+   Example of Pagination:
+   Consider a blog with 10,000 posts. Instead of loading all posts at once, you can display 10 posts per page and fetch the next set when the user clicks "Next Page."
+
+   What is an infinite Query?
+   -> An Infinite Query (or infinite Scroll) is a technique where new data is loaded automatically when the user scrolls down instead of using "Next Page" buttons.
+   -> It's commonly used in social media feeds (e.g Instagram, Facebook etc) and other content-heavy apps.
+
+   In TanStack Query, infinite queries handle data fetching in chunks and keep track of loaded pages.
+
+5. Server-Side Rendering (SSR): Supports SSR for improved SEO and faster initial page loads, making it ideal for applications that need preloaded data.
+
+6. Query Invalidation & Refetching: Automatically handles query invalidation and allows you to manually trigger refetching of data.
+
+7. Error & Loading State Handling: Automatically handles loading and error states, making it easier to work with asynchronous data.
+
+8. Optimistic Updates: Supports optimistic updates for real-time user experience when data mutations are involved.
+
+    Mutating Data?
+    -> Mutating data refers to performing operations that change or update the data on the server or database. This includes actions like:
+
+       -Creating new data (e.g., adding a new item or creating a new user)
+       -Updating existing data (e.g., editing a post or updating user profile)
+       -Deleting data (e.g., removing an item or deleting a user)
+       
+       In the context of TanStack Query (or React Query), mutations are operations that send data to the server to perform one of the above actions.
+
+    What Are Optimistic Updates in TanStack Query?
+    -> Optimistic updates are a technique used to update the UI immediately before the actual server response is received. This creates a faster and more responsive user experience because
+       the user sees changes instantly instead of waiting for a round trip to the server.
+
+9. Polling & Retry Logic: Built-in support for polling and retries for failed requests.

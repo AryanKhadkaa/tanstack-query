@@ -1,0 +1,54 @@
+
+To get started with TanStack Query or React Query,
+
+1. Install TanStack Query: npm install @tanstack/react-query
+
+2. Set up the Query Client:
+
+   To use TanStack Query, you need to wrap your app with the QueryClientProvider and pass a QueryClient instance.
+   This is typically done in your root component (i.e main.tsx here).
+
+   In main.tsx / main.jsx ( depends if youre using TypeScript or JavaScript)
+
+   import .......... // wtv imports required
+   import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
+
+   // Create a new query client instance
+   const queryClient = new QueryClient();
+
+   ReactDOM.render(
+    <QueryClientProvider>  //Wraping out App with quieryClientProvider
+    <App/>
+    </QueryClientProvider>
+    document.getElementById('root')
+   )
+
+3. Use a Query in a Component:
+  
+   Now that your query client in set up you can begin querying data in your components.
+   
+
+   const AnyComponent = () => {
+
+    const {data,error,isLoading,refetch, isPending} = useQuery({
+        queryKey = ['data'],
+        queryFn = fetchData
+    })
+   }
+
+Key Parts of useQuery:
+
+useQuery accepts at least two arguments:
+
+1. Query Key (['data'] in the example): A unique key to identify the query, which allows caching and re-fetching.
+   This can be a simple string or an array (if you want to parameterize your query).
+
+2. Query Function (fetchData): A function that fetches the data. It can be any async function (like fetch or an API call).
+
+
+CONCLUSION:
+
+Thus, TanStack Query makes data fetching and caching seamless while providing powerful tools for handling asynchronous data in your components. 
+You can further explore features like pagination, caching, background fetching, and more as your app grows.
+
+Browse through TanStack Query docs to learn more.
