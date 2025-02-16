@@ -17,7 +17,16 @@ export function createTodoQueryOptions() {
     })    
 }
 
-const getTodos = async () => {
+
+type Todo = {       // declaring the type of data is important so as to avoid any sorts of mistaches in acessing the data type.
+                    // this is good code practice and a feature in ts that helps imporve the typesafety of the code
+    userId:number;
+    id:number;
+    title:string;
+    completed:boolean
+}
+
+const getTodos = async ():Promise<Todo[]> => { // as we get a promise from our async function, we are letting it know that the response data will be of type Todo
   // const response = await fetch("https://jsonplaceholder.typicode.com/todos"); //using a mock api
   const response = await fetch(
     `https://jsonplaceholder.typicode.com/comments?postId=${1}`
