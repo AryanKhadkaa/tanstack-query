@@ -3,15 +3,21 @@ import "./App.css";
 import { useState } from "react";
 
 function App() {
-  const [postId, setPostId] = useState(1);
-  const { data, isPending, refetch, isFetching, error } = useQuery({
-    // the core of the tanstack query is the use of the useQuery hook.
-    // Thats how we actually query for data.
-    // This fn takes one primary argument that is an object, this object need two properties to work properly,
-    // first is queryKey and second is queryFn (function)
+  // Conditional Querying: We know that we cannot call hooks in react conditionally
+  // So conditional querying is not made easy with normal react,
+  // So in react query with useQuery hook, we can do kind of conditional querying
 
+  // we set a stat on like an on/off switch, we can adjust our querying in such a way that it runs only when useQuery is on i.e the state on is true
+  // we can easily do this by "enabled: " property in useQuery as shown below.
+  const [postId, setPostId] = useState(1);
+  const [on, setOn] = useState(true);
+
+  const { data, isPending, refetch, isFetching, error } = useQuery({
     queryKey: ["todos", postId], // queryKey is an array and must be unique, as different quieries cannot have same keys to identify them
     queryFn: () => getTodos(postId), //we're not calling the fucnction there so we dont need the paranthesis[()], we're just passing the function
+
+    enabled: on,
+    //This is applicable in situations when we have multuple useQueries in the same compoenent and we only need certain ones depending on some states on your compoenet.
   });
   if (error) alert("err occured");
 
