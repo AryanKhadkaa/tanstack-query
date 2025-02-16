@@ -10,7 +10,7 @@ export function createTodoQueryOptions() {
     return queryOptions({
          
     queryKey: ["todos"], // queryKey is an array and must be unique, as different quieries cannot have same keys to identify them
-    queryFn: () => getTodos, //we're not calling the fucnction there so we dont need the paranthesis[()], we're just passing the function
+    queryFn: getTodos, //we're not calling the fucnction there so we dont need the paranthesis[()], we're just passing the function
 
     enabled: true,
         //This is applicable in situations when we have multuple useQueries in the same compoenent and we only need certain ones depending on some states on your compoenent
@@ -26,7 +26,7 @@ type Todo = {       // declaring the type of data is important so as to avoid an
     completed:boolean
 }
 
-const getTodos = async (): Promise<Todo[] > => { // as we get a promise from our async function, we are letting it know that the response data will be of type Todo
+const getTodos = async (): Promise<Todo[]> => { // as we get a promise from our async function, we are letting it know that the response data will be of type Todo
   // const response = await fetch("https://jsonplaceholder.typicode.com/todos"); //using a mock api
   const response = await fetch(
     `https://jsonplaceholder.typicode.com/comments?postId=${1}`
